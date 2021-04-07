@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1d1d1f;
+  color: #f5f5f7;
+  font-family: 'Inter', sans-serif;
+  font-size: 1em;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 750px) {
+  body {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Utilities */
+.col-dark-gray {
+  color: #7c7c8a;
+}
+
+.main {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 750px) {
+  .main {
+    max-width: 740px;
+    grid-template-areas: 
+      "covatar about"
+      "covatar about"
+      "covatar links";
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .main {
+    grid-template-areas: "covatar about links";
+    align-items: center;
+  }
+}
+
+.main > img {
+  max-width: 220px;
+  min-height: 340px;
+  object-fit: cover;
+  position: relative;
+  top: -2rem;
+  left: -2rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .main > img {
+    top: unset;
+    left: unset;
+    margin-bottom: 2em;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .main > img {
+    max-width: 320px;
+    min-height: 480px;
+    left: -2rem;
+    margin-bottom: 0;
+    grid-area: covatar;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .main > img {
+    left: unset;
+  }
+}
+
+/* About Me */
+
+.about-me-intro .title {
+  font-size: 1.8em; /* => 2em */
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 10px;
+  letter-spacing: -0.035em;
+}
+
+.about-me-intro .title > span {
+  font-size: 0.9em;
+  padding-right: 0.2em;
+  padding-left: 0.2em;
+  border-radius: 2px;
+  letter-spacing: -0.04em;
+  background-color: #39393d;
+}
+
+.about-me-intro .subtitle-wrap {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.about-me-intro .subtitle-wrap li a {
+  color: #7c7c8a;
+  padding-right: 1em;
+  
+}
+
+.about-me-intro .sub-title {
+  font-size: 1em; /* => 1em */
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.about-me-summary {
+  font-size: 0.9em;
+  line-height: 1.5;
+  max-width: 450px;
+  margin: 1.8em 0 2em;
+}
+
+@media screen and (min-width: 750px) {
+  .about-me-intro .title {
+    font-size: 2.4em;
+  }
+
+  .about-me-summary {
+    font-size: 1.1em;
+  }
+}
+
+/* All Links */
+.all-links-wrap {
+  display: grid;
+  grid-gap: 2vh 2em;
+  grid-area: links;
+  grid-template-columns: 1fr;
+  list-style: none;
+  counter-reset: links-counter;
+}
+@media screen and (min-width: 750px) {
+  .all-links-wrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.all-links-wrap li {
+  counter-increment: links-counter;
+}
+
+.all-links-wrap li::before {
+  content: counter(links-counter)".";
+  color: #5c5c66;
+  padding-right: .5em;
+  font-size: 0.8em;
+}
+
+.all-links-wrap li a {
+  color: #9d9da3;
+  font-size: 1em;
+  letter-spacing: -0.015em;
+  padding: 0.2em 0.5em;
+  transition: background-color 400ms ease, color 100ms ease;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.all-links-wrap li a:hover {
+  background-color: #39393d;
+  color: #f5f5f7;
+}
+
+@media screen and (min-width: 750px) {
+  .all-links-wrap li::before {
+    font-size: 0.85em;
+  }
+}
